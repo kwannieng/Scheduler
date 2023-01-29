@@ -25,28 +25,25 @@ let scheduleTime = [
   $('#4pm').text(), 
   $('#5pm').text() ]
 
+  let saveButtons =[
+    $("#button1"),
+    $("#button2"),
+    $("#button3"),
+    $("#button4"),
+    $("#button5"),
+    $("#button6"),
+    $("#button7"),
+    $("#button8"),
+    $("#button9")
+  ]  
+
 displayDate()
 function displayDate() {
     let rightNow = moment().format('dddd, MMMM Do YYYY');
     todayDate.text(rightNow);
   }
 
-
-
-let saveButtons =[
-  $("#button1"),
-  $("#button2"),
-  $("#button3"),
-  $("#button4"),
-  $("#button5"),
-  $("#button6"),
-  $("#button7"),
-  $("#button8"),
-  $("#button9")
-]
-
 colorTimeblocks ()
-
 function colorTimeblocks (){
   let currentTime = moment().format('HH:00');
   for (index=0; index<scheduleTime.length; index++){  
@@ -66,6 +63,7 @@ function colorTimeblocks (){
   }
 }
 
+// saveEvent()
 
 
 
