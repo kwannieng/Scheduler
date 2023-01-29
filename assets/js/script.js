@@ -25,11 +25,12 @@ let scheduleTime = [
   $('#4pm').text(), 
   $('#5pm').text() ]
 
+displayDate()
 function displayDate() {
     let rightNow = moment().format('dddd, MMMM Do YYYY');
     todayDate.text(rightNow);
   }
-displayDate()
+
 
 
 let saveButtons =[
