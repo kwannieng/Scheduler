@@ -25,17 +25,10 @@ let scheduleTime = [
   $('#4pm').text(), 
   $('#5pm').text() ]
 
-  let saveButtons =[
-    $("#button1"),
-    $("#button2"),
-    $("#button3"),
-    $("#button4"),
-    $("#button5"),
-    $("#button6"),
-    $("#button7"),
-    $("#button8"),
-    $("#button9")
-  ]  
+  let button = $(".saveBtn")
+
+  console.log(button)
+
 
 displayDate()
 function displayDate() {
@@ -63,17 +56,129 @@ function colorTimeblocks (){
   }
 }
 
-// saveEvent()
+// let saveButtons = document.querySelector("button")
+// let myEvent = document.querySelector(".description")
+// let myEvents = []
+
+// function renderEvent() {
+//   // Clear todoList element and update todoCountSpan
+//   // myEvent.innerHTML = "";
+  
+//   // Render a new p for each timeblock
+//   for (var b = 0; b < myEvents.length; b++) {
+//     let schedule = myEvent[b];
+
+//     let p = document.createElement("p");
+//     p.textContent = schedule;
+//     p.setAttribute("data-index", b);
+//     myEvent.appendChild(p);
+//   }
+// }
+
+// function init() {
+//   // Get stored todos from localStorage
+//   // Parsing the JSON string to an object
+//   let stored = JSON.parse(localStorage.getItem("Event"));
+
+//   // If my Event were retrieved from localStorage, update the myEvents array to it
+//   if (stored !== null) {
+//     myEvents = stored;
+//   }
+
+//   // Render todos to the DOM
+//   renderEvent();
+// }
+
+// function storeEvent() {
+//   // Stringify and set "todos" key in localStorage to todos array
+//   localStorage.setItem("Event", JSON.stringify(myEvents));
+// }
+
+// // When save button is clicked...
+// for (a=0; a<saveButtons.length; a++){
+
+// saveButtons.addEventListener("click", function(e) {
+//   e.preventDefault();
+//   let eventText = myEvent.value.trim();
+
+//   // Return from function early if submitted todoText is blank
+//   if (eventText === "") {
+//     return;
+//   }
+
+//   // Add new event to myEvents array, clear the input
+//   myEvents.push(eventText);
+//   myEvent.value = "";
+
+//   // Store updated todos in localStorage, re-render the list
+//   storeEvent();
+//   renderEvent();
+
+// })
+
+// }
 
 
 
+var myEvent = document.querySelector(".description");
+var myEvents = [];
+
+init();
+
+function renderEvents() {
+  
+  // Render a new p for each timeblock
+  for (var a = 0; a < myEvents.length; a++) {
+    let schedule = myEvents[i];
+
+    let p = document.createElement("p");
+    p.textContent = schedule;
+    p.setAttribute("data-index", a);
+
+    myEvent.appendChild(p);
+  }
+}
+
+function init() {
+  // Get stored todos from localStorage
+  // Parsing the JSON string to an object
+  var storeEvents = JSON.parse(localStorage.getItem("myEvents"));
+
+  // If myEvents were retrieved from localStorage, update the myEvents array to it
+  if (storeEvents !== null) {
+    myEvents = storeEvents;
+  }
+
+  // Render myEvents to the DOM
+  renderEvents();
+}
 
 
+function store() {
 
+  // Stringify and set "myEvents" key in localStorage to myEvents array
+  localStorage.setItem("myEvents", JSON.stringify(myEvents));
+}  
+// When button is clicked...
 
+for (var b = 0; b < button.length; b++) {
+  button.on("click", function(e) {
+  e.preventDefault();
 
+  let eventText= myEvent.value.trim();
 
+  // Return from function early if submitted eventTextis blank
+  if (eventText=== "") {
+    return;
+  }
 
-
+  // Add new eventText to myEvents array, clear the input
+  myEvents.push(eventText);
+  myEvent.value = "";
+  })
+  // Store updated myEvents in localStorage, re-render the list
+  store();
+  renderEvents();
+}
 
 })
